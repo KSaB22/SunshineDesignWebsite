@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>מוצרים</title>
+        <!-- Bootstrap CSS only -->
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <!-- Bootstrap JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script>
+          $(function (){
+            //add an item
+            $(".btn-success").on("click",function (event){
+                var addTr = $('<tr class="hide">');
+                var collums= '';
+                collums += '<td class="pt-3-half" contenteditable="false" id="item">'+ $(this).attr("name") +'</td>';
+                collums += `
+                    <td>
+                    <span class="table-remove"
+                        ><button
+                        type="button"
+                        class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light"
+                        id="deleteRow"
+                        >
+                        הסר 
+                        </button></span>
+                    </td>
+                    `;
+                addTr.append(collums);
+                $("table").append(addTr);
+          });
+
+          //add an item thats one of the last one
+          $(".btn-warning").on("click",function (event){
+                var addTr = $('<tr class="hide">');
+                var collums= '';
+                collums += '<td class="pt-3-half" contenteditable="false" id="item">'+ $(this).attr("name") +'</td>';
+                collums += `
+                    <td>
+                    <span class="table-remove"
+                        ><button
+                        type="button"
+                        class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light"
+                        id="deleteRow"
+                        >
+                        הסר 
+                        </button></span>
+                    </td>
+                    `;
+                addTr.append(collums);
+                $("table").append(addTr);
+        });
+
+        // remove a row from the table
+        $("table").on("click", "#deleteRow", function (event) {
+              $(this).closest("tr").remove();
+                });
+         });
+      </script>
+    </head>
+    <body dir="rtl">
+        <div class="container" dir="ltr">
+            <header class="d-flex flex-wrap justify-content-right py-3 mb-4 border-bottom" >
+              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" >
+                <svg class="bi me-2" width="62.5" height="50" ><img src="pictures/Sunshine Design logo.png" height="50"></svg>
+              </a>
+              <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none" >
+                <svg class="bi me-2" width="62.5" height="50" ><img src="pictures/Sunshine Design text.png" height="50"></svg>
+              </a>
+        
+              <ul class="nav nav-pills" dir="rtl">
+                <li class="nav-item"><a href="main.html" class="nav-link">דף בית</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link active" aria-current="page">מוצרים</a></li>
+                <li class="nav-item"><a href="basket.html" class="nav-link">סל</a></li>
+                <li class="nav-item"><a href="signin.html" class="nav-link">התחברות\רישום</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">אודות</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">צרו קשר</a></li>
+              </ul>
+            </header>
+          </div>
+          <div class="container mt-3"><!--ALERT-->
+            <div class="alert alert-info alert-dismissible">
+              <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+              <strong>הנחה!</strong> יש הנחה על כל המכשירים של Lenovo.
+            </div>
+        <div class="container mt-3">
+              <form action="#" class="" dir="ltr">
+                <div class="input-group text-dark">
+                  <input type="search" class="form-control w-50" placeholder="Search">
+                  <select class="form-select">
+                    <option value="">כל הסוגים</option>
+                    <option value="codex">הנחות מיוחדות</option>
+                    <option value="comments">הכי נמכרים</option>
+                    <option value="content">הכי חדשים</option>
+                  </select>
+                  <button class="btn btn-info"> <i class="fa fa-search"></i> </button>
+                </div> <!-- input-group end.// -->
+              </form>
+              <div class="card mt-3"><!--BASKET-->
+                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+                  רשימת המשאלות שלי
+                </h3>
+                <div class="card-body">
+                  <div id="table" class="table-editable">
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
+                      <thead>
+                        <tr>
+                          <th class="text-center">שם מוצר</th>
+                          <th class="text-center">הסר</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="comtainer text-success mt-3">
+            <div class="row"><!-- FIRST ROW OF ITEMS -->
+                <div class="col"></div>
+                <div class="col">
+                    <div class="card">
+                        <img class="card-img-top img-responsive" height="275px" width="auto" src="pictures/Items/Dell Latitude 7390.png" alt="Card image">
+                        <div class="card-img-overlay">
+                        <h4 class="card-title">Dell Latitude 7390</h4>
+                        <p class="card-text">6,890 ₪</p>
+                        <a class="btn btn-success" id="addToBasket" name="Dell Latitude 7390">הוסף לרשימה</a>
+                        
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <img class="card-img-top img-responsive" height="275px" width="auto" src="pictures/Items/Galaxy Tab A.png" alt="Card image">
+                        <div class="card-img-overlay">
+                        <h4 class="card-title">Galaxy Tab A</h4>
+                        <p class="card-text">560 ₪</p>
+                        <a class="btn btn-success" id="addToBasket" name="Galaxy Tab A">הוסף לרשימה</a>
+                        
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+            <div class="row"><!-- SECOND ROW  -->
+              <div class="col"></div>
+              <div class="col">
+                  <div class="card">
+                      <img class="card-img-top img-responsive" height="275px" width="auto" src="pictures/Items/iPhone 13 Pro.png" alt="Card image">
+                      <div class="card-img-overlay">
+                      <h4 class="card-title" >iPhone 13 Pro</h4>
+                      <p class="card-text">4,190 ₪</p>
+                      <a class="btn btn-success" id="addToBasket" name="iPhone 13 Pro">הוסף לרשימה</a>
+                      
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                  <div class="card text-danger">
+                      <img class="card-img-top img-responsive" height="275px" width="auto" src="pictures/Items/Lenovo Legion 5 Pro.png" alt="Card image">
+                      <div class="card-img-overlay">
+                      <h4 class="card-title" >Lenovo Legion 5 Pro</h4>
+                      <p class="card-text"><del>6,950 ₪</del> 5,999 ₪</p>
+                      <a class="btn btn-outline-danger" id="addToBasket" name="Lenovo Legion 5 Pro">אזל המלאי</a>
+                      </div>
+                  </div>
+              </div>
+              <div class="col"></div>
+          </div>
+          <div class="row"> <!--  THIRD ROW  -->
+            <div class="col"></div>
+            <div class="col">
+                <div class="card text-warning">
+                    <img class="card-img-top img-responsive" height="275px" width="auto" src="pictures/Items/MacBook Pro.png" alt="Card image">
+                    <div class="card-img-overlay">
+                    <h4 class="card-title" >MacBook Pro</h4>
+                    <p class="card-text">4,900 ₪</p>
+                    <a class="btn btn-warning" id="addToBasket" name="MacBook Pro">אחרונים במלאי</a>
+                    
+                  </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img class="card-img-top img-responsive" height="275px" width="auto" src="pictures/Items/Samsung Galaxy S22 Ultra.png" alt="Card image">
+                    <div class="card-img-overlay">
+                    <h4 class="card-title" >Samsung Galaxy S22 Ultra</h4>
+                    <p class="card-text">3,900 ₪</p>
+                    <a class="btn btn-success" id="addToBasket" name="Samsung Galaxy S22 Ultra">הוסף לרשימה</a>
+                    
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        </div>         
+        <div class="container">
+            <footer class="py-3 my-4 border-top">
+              <p class="text-center text-muted">כל הזכויות שמורות לאיסלאם חסדייה 206858334, שניר יוספיאן 207975632, כפיר בק 325345064 ויאיר קצוטי 316578855</p>
+            </footer>
+          </div>
+    </body>
+</html>
